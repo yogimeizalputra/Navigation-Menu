@@ -7,8 +7,12 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+html {
+  font-size: 62.5%;
+}
 body{
   background: #f2f2f2;
+  font-size: 1.6rem;
 }
 
 /* Image*/
@@ -19,17 +23,17 @@ body{
 }
 
 nav{
-  background: #1d1d1d;
+  background: #7868e6;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   height: 70px;
-  padding: 0 100px;
+  padding: 0 80px;
 }
 nav .logo{
   color: #fff;
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 600;
   letter-spacing: -1px;
 }
@@ -37,6 +41,7 @@ nav .nav-items{
   display: flex;
   flex: 1;
   padding: 0 0 0 40px;
+  justify-content: center;
 }
 nav .nav-items li{
   list-style: none;
@@ -44,21 +49,20 @@ nav .nav-items li{
 }
 nav .nav-items li a{
   color: #fff;
-  font-size: 18px;
+  font-size: 1.6rem;
   font-weight: 500;
   text-decoration: none;
 }
 nav .nav-items li a:hover{
-  color: #818086;
+  color: #aba3db;
 }
 nav form{
   display: flex;
-  height: 40px;
+  height: 35px;
   padding: 2px;
-  background: #242323;
-  min-width: 18%!important;
-  border-radius: 2px;
-  border: 1px solid rgba(61, 61, 61, 0.2);
+  background: #b8b5ff;
+  min-width: 10%!important;
+  border: 1px solid #9187d4c0;
   border-radius: 20px;
 }
 nav form .search-data{
@@ -66,22 +70,22 @@ nav form .search-data{
   height: 100%;
   padding: 0 10px;
   color: #fff;
-  font-size: 17px;
+  font-size: 1.3rem;
   border: none;
   font-weight: 500;
   background: none;
 }
 nav form button{
-  padding: 0 15px;
+  padding: 0 10px;
   color: #fff;
-  font-size: 17px;
-  background: #818086;
+  font-size: 1.7;
+  background: #7868e6;
   border: none;
   border-radius: 20px;
   cursor: pointer;
 }
 nav form button:hover{
-  background: #79797a;
+  background: #7868e6;
 }
 nav .menu-icon,
 nav .cancel-icon,
@@ -89,7 +93,7 @@ nav .search-icon{
   width: 40px;
   text-align: center;
   margin: 0 50px;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: #fff;
   cursor: pointer;
   display: none;
@@ -99,14 +103,98 @@ nav .cancel-icon,
 nav .search-icon{
   display: none;
 }
-@media (max-width: 1245px) {
-  nav{
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.content header,
+.content .text {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.space{
+  margin: 10px 0;
+}
+nav .logo.space{
+  color: #9187d4;
+  padding: 0 5px 0 0;
+}
+
+
+@media (max-width: 1066px){
+  nav {
     padding: 0 50px;
   }
+  nav .logo{
+    font-size: 2.4rem;
+  }
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    padding: 0 20px;
+    margin: 0 10px;
+  }
+  nav form{
+    right: 15px;
+  }
+  nav form{
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    opacity: 0;
+    pointer-events: none;
+    transition: top 0.3s ease, opacity 0.1s ease;
+  }
+  nav form.active{
+    top: 95px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  nav form:before{
+    position: absolute;
+    content: "";
+    top: -13px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    border: 10px solid transparent;
+    border-bottom-color: #9187d4;
+    margin: -20px 0 0;
+  }
+  nav form:after{
+    position: absolute;
+    content: '';
+    height: 60px;
+    padding: 2px;
+    background: #9187d4;
+    border-radius: 2px;
+    min-width: calc(100% + 20px);
+    z-index: -2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  nav .search-icon{
+    display: block;
+  }
+  nav .search-icon.hide{
+    display: none;
+  }
+  nav .cancel-icon.show{
+    display: block;
+  }
+  .image{
+    background-position: center;
+  }
 }
-@media (max-width: 1140px){
+
+@media (max-width: 768px){
   nav{
-    padding: 0px;
+    padding: 10px;
   }
   nav .logo{
     flex: 2;
@@ -121,7 +209,7 @@ nav .search-icon{
     height: 100%;
     padding: 10px 50px 0 50px;
     text-align: center;
-    background: #242323;
+    background: #9187d4;
     display: inline-block;
     transition: left 0.3s ease;
   }
@@ -133,7 +221,7 @@ nav .search-icon{
     margin: 30px 0;
   }
   nav .nav-items li a{
-    font-size: 20px;
+    font-size: 2rem;
   }
   nav form{
     position: absolute;
@@ -157,7 +245,7 @@ nav .search-icon{
     height: 0;
     z-index: -1;
     border: 10px solid transparent;
-    border-bottom-color: #242323;
+    border-bottom-color: #9187d4;
     margin: -20px 0 0;
   }
   nav form:after{
@@ -165,7 +253,7 @@ nav .search-icon{
     content: '';
     height: 60px;
     padding: 2px;
-    background: #242323;
+    background: #9187d4;
     border-radius: 2px;
     min-width: calc(100% + 20px);
     z-index: -2;
@@ -188,47 +276,15 @@ nav .search-icon{
     display: block;
   }
 }
-.content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-.content header{
-  font-size: 30px;
-  font-weight: 700;
-}
-.content .text{
-  font-size: 30px;
-  font-weight: 700;
-}
-.space{
-  margin: 10px 0;
-}
-nav .logo.space{
-  color: #818086;
-  padding: 0 5px 0 0;
-}
-@media (max-width: 980px){
-  nav .menu-icon,
-  nav .cancel-icon,
-  nav .search-icon{
-    margin: 0 20px;
-  }
-  nav form{
-    right: 30px;
-  }
-  .image{
-    background-position: center;
-  }
-}
+
 @media (max-width: 350px){
+  nav {
+    padding: 0;
+  }
   nav .menu-icon,
   nav .cancel-icon,
   nav .search-icon{
-    margin: 0 10px;
-    font-size: 16px;
+    font-size: 1.3rem;
   }
 
 }

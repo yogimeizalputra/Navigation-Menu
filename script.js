@@ -16,7 +16,7 @@ const form = document.querySelector("form");
       searchBtn.classList.remove("hide");
       cancelBtn.classList.remove("show");
       form.classList.remove("active");
-      cancelBtn.style.color = "#ff3d00";
+      cancelBtn.style.color = "#fff";
     }
     searchBtn.onclick = ()=>{
       form.classList.add("active");
